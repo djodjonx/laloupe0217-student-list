@@ -1,0 +1,39 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+          <label>firstName:<input ng-model="search.firstname" ></label>
+          <label>lastname:<input ng-model="search.lastname" ></label>
+          <label>postal:<input ng-model="search.zipCode" ></label>
+          
+            <table>
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Sexe</th>
+                    <th>Birthdate</th>
+                    <th>City</th>
+                    <th>Postal-Code</th>
+                    <th>Adress</th>
+                    <th>Github</th>
+                    <th>Email</th>
+                </tr>
+                <tr id="ligne" ng-repeat="student in students | filter:search track by $index ">
+                    <td>{{student.firstname}}</td>
+                    <td>{{student.lastname}}</td>
+                    <td>{{student.sexe}}</td>
+                    <td>{{student.birthdate | date}}</td>
+                    <td>{{student.city}}</td>
+                    <td>{{student.zipCode}}</td>
+                    <td>{{student.adress}}</td>
+                    <td>{{student.github}}</td>
+                    <td>{{student.email}}</td>
+                    <td><button type="button" class="btn btn-warning" ng-click="mail(student.email)">
+                      Send Mail
+                    </button></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
